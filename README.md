@@ -10,7 +10,7 @@
 
 ## 发布到 GitHub Pages
 
-目标账号：**Mowans**。个人主页仓库名称应为 **Mowans.github.io**，发布后地址为 **https://mowans.github.io/**。
+目标账号：**Mowans**。个人主页仓库名称为 **Mowans.github.io**，网站地址为 [mowans.github.io](https://mowans.github.io/)。
 
 1. 登录 GitHub，新建公开仓库 `Mowans.github.io`。
 2. 将本文件夹中的 `index.html`、`styles.css`、`script.js`、`assets/` 和 `.nojekyll` 上传到仓库根目录并提交到 `main` 分支。不要把整个文件夹作为额外的一层上传。
