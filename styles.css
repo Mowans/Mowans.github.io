@@ -168,3 +168,10 @@ details[open] summary .icon{transform:rotate(45deg)}
 @media print{.site-header,.hero-figure,.research-filters,.research-visual,.hero-links,.site-footer a,.skip-link{display:none!important}body{background:white;font-size:11px}.container{width:100%}.hero,.section,.contact-section{padding:20px 0}.hero,.research-item,.experience-layout{display:block}.research-topics{padding:10px 0}.section-heading{margin-bottom:15px}h1{font-size:32px}h2{font-size:24px}.research-item{break-inside:avoid;padding:16px 0}.company-info{margin-bottom:15px}.detail-body{background:white}.background-grid{gap:35px}.contact-email{font-size:18px}.site-footer{padding:15px 0}.research-footnote{margin-top:10px}}
 
 .project-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}.research-content h3,.research-content p,.detail-body{overflow-wrap:anywhere}
+.project-video{margin:20px 0 0;max-width:100%;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#fff}
+.project-video video{display:block;width:100%;height:auto;max-width:100%;background:#101c19}
+.project-video video:focus-visible{outline:3px solid var(--green);outline-offset:-3px}
+.project-video figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;font-size:11px;color:var(--muted)}
+.project-video figcaption a{color:var(--green);white-space:nowrap}.video-duration{margin-left:8px;font-variant-numeric:tabular-nums}
+@media(max-width:640px){.project-video figcaption{padding:9px 11px;font-size:10px}}
+@media print{.project-video{display:none!important}}

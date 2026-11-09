@@ -1,4 +1,4 @@
-import {normalizeContent, renderSite, CV_PATH, MAX_PDF_BYTES} from './content.mjs';
+import {normalizeContent, renderSite, CV_PATH, MAX_PDF_BYTES} from './content.mjs?v=2';
 
 export const OWNER='Mowans';
 export const REPO='Mowans.github.io';

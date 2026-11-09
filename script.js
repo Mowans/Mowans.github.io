@@ -55,8 +55,16 @@
   filters.forEach(button => button.addEventListener('click', () => {
     activeFilter = button.dataset.filter;
     filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
-    projects.forEach(project => { project.hidden = activeFilter !== 'all' && !project.dataset.topics.split(' ').includes(activeFilter); });
+    projects.forEach(project => {
+      project.hidden = activeFilter !== 'all' && !project.dataset.topics.split(' ').includes(activeFilter);
+      if(project.hidden) project.querySelectorAll('video').forEach(video=>video.pause());
+    });
     announceResults();
+  }));
+
+  const projectVideos=[...document.querySelectorAll('.project-video video')];
+  projectVideos.forEach(video=>video.addEventListener('play',()=>{
+    projectVideos.forEach(other=>{if(other!==video)other.pause();});
   }));
 
   menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));

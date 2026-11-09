@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com https://mowans.github.io; frame-src 'self' blob:; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://api.github.com https://mowans.github.io; frame-src 'self' blob:; base-uri 'self'; form-action 'none'; object-src 'none'">
   <meta name="theme-color" content="#f8f9f6"><title>主页管理 · Junyao Huang</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="admin.css?v=1">
-  <script src="admin.mjs?v=1" type="module"></script>
+  <script src="admin.mjs?v=2" type="module"></script>
 </head>
 <body>
   <header class="topbar"><div class="brand"><a href="../?lang=zh" class="monogram" aria-label="查看主页">jh.</a><span class="brand-divider"></span><span>主页管理</span></div><div class="account"><span id="connection-status" class="connection-status">尚未连接 GitHub</span><button id="connect-button" class="button compact">连接 GitHub</button><button id="disconnect-button" class="button compact" hidden>断开连接</button><a class="view-site" href="../?lang=zh" target="_blank" rel="noopener noreferrer">查看主页 ↗</a></div></header>
@@ -36,6 +36,7 @@
             <label class="field">方法与实验（英文）<textarea data-field="details.en" rows="5" maxlength="15000" lang="en"></textarea></label>
             <label class="field">方法示意图<select data-field="illustration"><option value="general">感知—学习—行动</option><option value="navigation">机器人导航</option><option value="planning">安全路径规划</option><option value="flight">事件视觉飞行</option></select></label>
             <div class="field-grid"><label class="field">论文链接<input data-field="links.paper" type="url" maxlength="2000" placeholder="https://…"></label><label class="field">代码链接<input data-field="links.code" type="url" maxlength="2000" placeholder="https://github.com/…"></label><label class="field">项目链接<input data-field="links.project" type="url" maxlength="2000" placeholder="https://…"></label><label class="field">视频链接<input data-field="links.video" type="url" maxlength="2000" placeholder="https://…"></label></div>
+            <p class="help">视频使用完整网址。直接的 MP4 链接会在主页内显示播放器；其他视频网址显示为可打开的链接。</p>
           </details>
           <div class="editor-bottom"><div class="row-actions"><button id="move-up" type="button" class="button quiet">↑ 上移</button><button id="move-down" type="button" class="button quiet">↓ 下移</button></div><button id="remove-project" type="button" class="button danger">移除项目</button></div>
         </form>

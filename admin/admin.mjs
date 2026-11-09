@@ -1,5 +1,5 @@
-import {STATUSES,CATEGORIES,CV_PATH,newProject,normalizeContent,renderSite,statusLabel,validatePDF,escapeHTML} from './content.mjs';
-import {GitHubClient,ConflictError,UncertainError,SITE} from './github.mjs';
+import {STATUSES,CATEGORIES,CV_PATH,newProject,normalizeContent,renderSite,statusLabel,validatePDF,escapeHTML} from './content.mjs?v=2';
+import {GitHubClient,ConflictError,UncertainError,SITE} from './github.mjs?v=2';
 
 if(window.top!==window.self){document.body.textContent='请在独立窗口中打开主页管理页面。';throw new Error('Framing disabled');}
 const $=selector=>document.querySelector(selector);

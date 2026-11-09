@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": "initial-admin-20261109",
-  "updatedAt": "2026-11-09T06:10:00.000Z",
+  "revision": "project-videos-1794210562259",
+  "updatedAt": "2026-11-09T07:49:22.259Z",
   "cv": {
     "path": "assets/Junyao_Huang_CV.pdf",
     "fileName": "Junyao_Huang_CV.pdf",
@@ -51,7 +51,7 @@
         "paper": "",
         "code": "",
         "project": "",
-        "video": ""
+        "video": "https://mowans.github.io/assets/EventFlow_ICRA27_Submission.mp4"
       }
     },
     {
@@ -96,7 +96,7 @@
         "paper": "",
         "code": "",
         "project": "",
-        "video": ""
+        "video": "https://mowans.github.io/assets/completion_frontier_90s_clean.mp4"
       }
     },
     {

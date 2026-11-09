@@ -70,10 +70,21 @@ export function statusLabel(project) {
 function paragraphs(value, lang) {
   return (value[lang] || value[lang === 'zh' ? 'en' : 'zh']).split(/\n\s*\n/).filter(Boolean).map(p=>`<p>${escapeHTML(p).replace(/\n/g,'<br>')}</p>`).join('');
 }
+function renderVideo(project) {
+  const href=project.links.video;
+  if(!href || !/\.mp4$/i.test(new URL(href).pathname)) return '';
+  const media={
+    'https://mowans.github.io/assets/EventFlow_ICRA27_Submission.mp4':{poster:'assets/eventflow-poster.jpg',width:1280,height:766,duration:'2:56'},
+    'https://mowans.github.io/assets/completion_frontier_90s_clean.mp4':{poster:'assets/completion-frontier-poster.jpg',width:1920,height:1080,duration:'1:30'}
+  }[href];
+  const caption=`project-${project.id}-video-caption`;
+  return `<figure class="project-video"><video controls playsinline preload="none"${media?` poster="${media.poster}" width="${media.width}" height="${media.height}"`:''} aria-labelledby="${caption}"><source src="${escapeHTML(href)}" type="video/mp4">${bi({zh:'浏览器不支持播放此视频，请使用下方链接打开。',en:'Your browser does not support this video. Use the link below to open it.'})}</video><figcaption id="${caption}"><span>${bi({zh:'项目视频',en:'Project video'})}${media?` <span class="video-duration">${media.duration}</span>`:''}</span><a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${bi({zh:'在新窗口播放 ↗',en:'Open video ↗'})}</a></figcaption></figure>`;
+}
 function renderProject(project, i) {
   const art = ILLUSTRATIONS[project.illustration];
   const labels = {paper:['论文','Paper'],code:['代码','Code'],project:['项目','Project'],video:['视频','Video']};
-  const links = Object.entries(project.links).filter(([,url])=>url).map(([key,url])=>`<a class="text-link" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${bi({zh:labels[key][0],en:labels[key][1]})}<svg class="icon small"><use href="#arrow"/></svg></a>`).join('');
+  const video=renderVideo(project);
+  const links = Object.entries(project.links).filter(([key,url])=>url&&!(key==='video'&&video)).map(([key,url])=>`<a class="text-link" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${bi({zh:labels[key][0],en:labels[key][1]})}<svg class="icon small"><use href="#arrow"/></svg></a>`).join('');
   return `<article class="research-item" data-topics="${project.category}" id="project-${project.id}">
     <div class="research-visual ${art[1]}"><img src="assets/${art[0]}" width="280" height="196" alt="${art[2]}"><span class="visual-label">${String(i+1).padStart(2,'0')} / ${escapeHTML(CATEGORIES[project.category][1].toUpperCase())}</span></div>
     <div class="research-content">
@@ -81,6 +92,7 @@ function renderProject(project, i) {
       <h3>${bi(project.title)}</h3><p class="author">${bi(project.role)}</p><p>${bi(project.summary)}</p>
       ${project.metric.value?`<div class="result-line"><strong>${escapeHTML(project.metric.value)}</strong>${bi(project.metric.label)}</div>`:''}
       ${project.details.zh||project.details.en?`<details><summary>${bi({zh:'方法与实验',en:'Method & evaluation'})}<svg class="icon"><use href="#plus"/></svg></summary><div class="detail-body"><div lang="en">${paragraphs(project.details,'en')}</div><div lang="zh-CN">${paragraphs(project.details,'zh')}</div></div></details>`:''}
+      ${video}
       ${links?`<div class="project-links">${links}</div>`:''}
     </div></article>`.replace(/[ \t]+$/gm,'');
 }
