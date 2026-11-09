@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 196" width="280" height="196" fill="none">
+  <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#c5d4d7"/></pattern></defs>
+  <path d="M20 25h240v145H20z" fill="url(#dots)"/>
+  <path d="M45 147h190M60 163V43" stroke="#c4d2d4" stroke-width=".8"/>
+  <path d="M140 102c42-64 97-64 97-17 0 47-55 47-97-17C98 4 43 4 43 51c0 47 55 47 97-17" stroke="#d0dcde" stroke-width="1.2" transform="translate(0 27) scale(1 .8)"/>
+  <path d="M140 98c38-49 95-54 95-10s-53 55-95 10S45 43 45 88s53 59 95 10Z" stroke="#6b919a" stroke-width="2"/>
+  <path d="M45 88v48m190-48v48M91 62v66m94-66v66" stroke="#b7ced1" stroke-dasharray="3 4"/>
+  <path d="M45 136c0 25 53 35 95-4s95-45 95-1-53 51-95 1-95-40-95 4Z" stroke="#bacfd3" stroke-width="1" stroke-dasharray="3 4"/>
+  <g transform="translate(190 62)"><path d="m-12-8 24 16m-24 0 24-16" stroke="#416d78" stroke-width="2"/><ellipse cx="-13" cy="-9" rx="8" ry="4" fill="#eaf0f2" stroke="#6b919a"/><ellipse cx="13" cy="9" rx="8" ry="4" fill="#eaf0f2" stroke="#6b919a"/><ellipse cx="-13" cy="9" rx="8" ry="4" fill="#eaf0f2" stroke="#6b919a"/><ellipse cx="13" cy="-9" rx="8" ry="4" fill="#eaf0f2" stroke="#6b919a"/><rect x="-5" y="-4" width="10" height="8" rx="2" fill="#678d96"/></g>
+  <text x="26" y="22" fill="#6e8991" font-family="Arial,sans-serif" font-size="7" letter-spacing="1.2">PERCEPTION → FEEDBACK</text><text x="237" y="150" fill="#80989c" font-size="8" font-family="Arial,sans-serif">x</text><text x="53" y="39" fill="#80989c" font-size="8" font-family="Arial,sans-serif">z</text>
+</svg>

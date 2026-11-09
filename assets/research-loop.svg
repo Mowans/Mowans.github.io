@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="320" viewBox="0 0 420 320" fill="none">
+  <defs><pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#c9d4c0"/></pattern><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="m1 1 4 2.5L1 6" stroke="#6e8b63" fill="none"/></marker></defs>
+  <path fill="url(#grid)" d="M0 0h420v320H0z"/>
+  <path d="M123 98C180 37 225 40 276 71M326 128c21 53 4 88-44 111M217 257C111 280 66 233 79 161" stroke="#9eaf91" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M133 114c39-24 77-22 117-8M289 144c-3 37-21 55-50 70M185 221c-45-6-70-24-81-59" stroke="#bbc9af" stroke-dasharray="4 5"/>
+  <text x="192" y="167" font-family="Arial,sans-serif" font-size="9" fill="#718365" letter-spacing="2">CLOSED</text><text x="198" y="183" font-family="Arial,sans-serif" font-size="9" fill="#718365" letter-spacing="2">LOOP</text>
+  <g transform="translate(41 82)"><rect width="90" height="76" rx="4" fill="#f8faf5" stroke="#a9b99b"/><path d="M9 58 74 12M9 67 83 16" stroke="#e0e7d8"/>
+    <g fill="#507b56"><circle cx="24" cy="50" r="2.5"/><circle cx="29" cy="44" r="2"/><circle cx="36" cy="39" r="3"/><circle cx="43" cy="29" r="2"/><circle cx="51" cy="25" r="2.7"/><circle cx="58" cy="19" r="2"/><circle cx="49" cy="46" r="2"/><circle cx="56" cy="39" r="2.5"/><circle cx="65" cy="33" r="2"/><circle cx="70" cy="22" r="2"/></g><g fill="#b79a6d"><circle cx="18" cy="44" r="1.5"/><circle cx="24" cy="35" r="2"/><circle cx="33" cy="30" r="1.5"/><circle cx="39" cy="23" r="2"/><circle cx="47" cy="16" r="1.5"/><circle cx="48" cy="59" r="1.5"/><circle cx="57" cy="52" r="2"/><circle cx="67" cy="46" r="1.5"/><circle cx="77" cy="37" r="1.5"/></g>
+    <text x="45" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.6" fill="#43653d">PERCEIVE</text>
+  </g>
+  <g transform="translate(263 56)"><rect width="92" height="76" rx="4" fill="#f8faf5" stroke="#a9b99b"/>
+    <g stroke="#c0cdb5"><path d="m19 20 27 3 27-3M19 20l27 33 27-15M19 38l27-15 27 33M19 38l27 15 27 3M19 56l27-33 27 15M19 56l27-3 27-33"/></g>
+    <g fill="#79946a" stroke="#f8faf5" stroke-width="2"><circle cx="19" cy="20" r="4"/><circle cx="19" cy="38" r="4"/><circle cx="19" cy="56" r="4"/><circle cx="46" cy="23" r="5"/><circle cx="46" cy="53" r="5"/><circle cx="73" cy="20" r="4"/><circle cx="73" cy="38" r="4"/><circle cx="73" cy="56" r="4"/></g>
+    <text x="46" y="97" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.6" fill="#43653d">LEARN</text>
+  </g>
+  <g transform="translate(199 208)"><rect width="90" height="71" rx="4" fill="#f8faf5" stroke="#a9b99b"/>
+    <path d="M15 57h60M45 17v-5m-4 0h8M31 27h28v20H31zM38 47v9m14-9v9M31 33l-9 9m37-9 9 9" stroke="#668358" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="33" y="17" width="24" height="12" rx="4" fill="#e4ecdc" stroke="#668358" stroke-width="1.5"/><circle cx="40" cy="23" r="1.5" fill="#668358"/><circle cx="50" cy="23" r="1.5" fill="#668358"/><path d="M40 36h10" stroke="#9bb28a"/>
+    <text x="45" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.6" fill="#43653d">ACT</text>
+  </g>
+  <path d="M12 290h25m-25 0v-25" stroke="#b7c4ac"/><text x="42" y="293" font-family="Arial,sans-serif" font-size="8" fill="#87967b">x</text><text x="9" y="258" font-family="Arial,sans-serif" font-size="8" fill="#87967b">y</text>
+</svg>

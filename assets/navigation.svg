@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 196" width="280" height="196" fill="none">
+  <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0v20" stroke="#dae4d8" stroke-width=".6"/></pattern><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="m1 1 4 2.5L1 6" stroke="#4e795d"/></marker></defs>
+  <rect x="22" y="22" width="236" height="152" fill="url(#grid)"/>
+  <path d="M30 151 246 47" stroke="#b9c8b5" stroke-dasharray="4 4"/>
+  <path d="M30 151c43-3 35-71 76-71 43 0 37 49 70 40 34-10 14-61 68-73" stroke="#4e795d" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <rect x="74" y="111" width="27" height="31" rx="2" fill="#cad8c6" stroke="#aabfa5"/><rect x="142" y="57" width="32" height="30" rx="2" fill="#cad8c6" stroke="#aabfa5"/><rect x="208" y="120" width="22" height="23" rx="2" fill="#dbe4d7" stroke="#b8c9b2"/>
+  <g transform="translate(128 86) rotate(33)"><path d="M-10-4 18 0-10 4Z" fill="#f8faf6" stroke="#4e795d" stroke-width="1.3"/><path d="M22-15q15 15 0 30M30-23q22 23 0 46" stroke="#adc4a6" stroke-dasharray="2 3"/></g>
+  <g fill="#7e9d74"><circle cx="107" cy="109" r="1.2"/><circle cx="115" cy="115" r="1.2"/><circle cx="124" cy="121" r="1.2"/><circle cx="133" cy="125" r="1.2"/><circle cx="145" cy="132" r="1.2"/><circle cx="152" cy="135" r="1.2"/><circle cx="110" cy="119" r="1"/><circle cx="121" cy="129" r="1"/><circle cx="130" cy="136" r="1"/></g>
+  <circle cx="30" cy="151" r="4" fill="#4e795d"/><circle cx="245" cy="46" r="4" fill="#f7faf5" stroke="#4e795d" stroke-width="1.5"/>
+  <text x="25" y="170" fill="#7c8e76" font-family="Arial,sans-serif" font-size="7" letter-spacing="1">START</text><text x="231" y="30" fill="#7c8e76" font-family="Arial,sans-serif" font-size="7" letter-spacing="1">GOAL</text>
+</svg>
