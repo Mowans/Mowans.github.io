@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com https://mowans.github.io; frame-src 'self' blob:; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="theme-color" content="#f8f9f6"><title>主页管理 · Junyao Huang</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="admin.css?v=1">
+  <script src="admin.mjs?v=1" type="module"></script>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><a href="../?lang=zh" class="monogram" aria-label="查看主页">jh.</a><span class="brand-divider"></span><span>主页管理</span></div><div class="account"><span id="connection-status" class="connection-status">尚未连接 GitHub</span><button id="connect-button" class="button compact">连接 GitHub</button><button id="disconnect-button" class="button compact" hidden>断开连接</button><a class="view-site" href="../?lang=zh" target="_blank" rel="noopener noreferrer">查看主页 ↗</a></div></header>
+  <main class="shell">
+    <div class="page-heading"><div><p class="eyebrow">JUNYAO HUANG / CONTENT STUDIO</p><h1>让主页保持最新。</h1><p class="muted">修改研究动态、添加项目，或换上一份新简历。</p></div><span id="draft-state" class="draft-state" role="status">正在载入内容…</span></div>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <div id="draft-banner" class="draft-banner" hidden><div><strong>有一份尚未发布的本机草稿</strong><p>你可以继续编辑，也可以使用当前线上内容。</p></div><div class="row-actions"><button id="restore-draft" class="button">恢复草稿</button><button id="discard-draft" class="button quiet">使用线上内容</button></div></div>
+    <nav class="tabs" aria-label="管理内容"><button data-tab="projects" aria-current="page">研究与项目 <span id="project-count">0</span></button><button data-tab="cv">简历文件</button></nav>
+    <div id="projects-panel" class="workspace">
+      <aside class="project-sidebar"><div class="sidebar-heading"><h2>项目列表</h2><button id="add-project" class="icon-button" aria-label="添加项目" title="添加项目" disabled>＋</button></div><div id="project-list" class="project-list"></div><p class="sidebar-note">列表顺序即主页展示顺序。<br>修改后先预览，再发布。</p></aside>
+      <section class="editor" aria-labelledby="editor-title">
+        <div id="empty-state" class="empty-state"><span class="empty-mark">＋</span><h2>从一个项目开始</h2><p>点击左侧加号，添加你的研究或实践经历。</p></div>
+        <form id="project-form" hidden novalidate>
+          <div class="editor-heading"><div><p class="eyebrow">PROJECT DETAILS</p><h2 id="editor-title">编辑项目</h2></div><label class="visibility-toggle"><input type="checkbox" data-field="visible"> 在主页展示</label></div>
+          <label class="field">项目 / 论文标题<span class="required">必填</span><input data-field="title.zh" maxlength="240" placeholder="例如：基于事件视觉的机器人导航"></label>
+          <div class="field-grid"><label class="field">论文 / 项目状态<select data-field="status" id="status-select"></select></label><label class="field">会议 / 期刊<input data-field="venue" maxlength="120" placeholder="例如：ICRA 2027"></label></div>
+          <div id="custom-status-fields" class="field-grid" hidden><label class="field">自定义状态（中文）<input data-field="customStatus.zh" maxlength="120"></label><label class="field">自定义状态（英文，可选）<input data-field="customStatus.en" maxlength="120"></label></div>
+          <div class="field-grid"><label class="field">研究分类<select data-field="category" id="category-select"></select></label><label class="field">项目时间<input data-field="period.zh" maxlength="120" placeholder="例如：2026.05 — 至今"></label></div>
+          <label class="field">项目简介<span class="required">必填</span><textarea data-field="summary.zh" rows="4" maxlength="3000" placeholder="介绍研究问题、你的方法和贡献。"></textarea></label>
+          <div class="field-grid metric-grid"><label class="field">核心指标（可选）<input data-field="metric.value" maxlength="80" placeholder="例如：60.5%"></label><label class="field">指标说明<input data-field="metric.label.zh" maxlength="500" placeholder="说明评估条件，区分仿真和实机结果。"></label></div>
+          <label class="field">方法与实验（可选）<textarea data-field="details.zh" rows="5" maxlength="15000" placeholder="填写详细方法和实验结果，空行用于分段。"></textarea></label>
+          <details class="extra-fields"><summary>英文内容与更多设置 <span>可选</span></summary><p class="help">英文留空时，该字段会使用中文内容；不会自动生成或翻译研究结论。</p>
+            <label class="field">英文标题<input data-field="title.en" maxlength="240" lang="en"></label>
+            <label class="field">英文简介<textarea data-field="summary.en" rows="4" maxlength="3000" lang="en"></textarea></label>
+            <div class="field-grid"><label class="field">作者 / 职责<input data-field="role.zh" maxlength="200" placeholder="例如：第一作者研究"></label><label class="field">作者 / 职责（英文）<input data-field="role.en" maxlength="200"></label></div>
+            <div class="field-grid"><label class="field">项目时间（英文）<input data-field="period.en" maxlength="120"></label><label class="field">指标说明（英文）<input data-field="metric.label.en" maxlength="500"></label></div>
+            <label class="field">方法与实验（英文）<textarea data-field="details.en" rows="5" maxlength="15000" lang="en"></textarea></label>
+            <label class="field">方法示意图<select data-field="illustration"><option value="general">感知—学习—行动</option><option value="navigation">机器人导航</option><option value="planning">安全路径规划</option><option value="flight">事件视觉飞行</option></select></label>
+            <div class="field-grid"><label class="field">论文链接<input data-field="links.paper" type="url" maxlength="2000" placeholder="https://…"></label><label class="field">代码链接<input data-field="links.code" type="url" maxlength="2000" placeholder="https://github.com/…"></label><label class="field">项目链接<input data-field="links.project" type="url" maxlength="2000" placeholder="https://…"></label><label class="field">视频链接<input data-field="links.video" type="url" maxlength="2000" placeholder="https://…"></label></div>
+          </details>
+          <div class="editor-bottom"><div class="row-actions"><button id="move-up" type="button" class="button quiet">↑ 上移</button><button id="move-down" type="button" class="button quiet">↓ 下移</button></div><button id="remove-project" type="button" class="button danger">移除项目</button></div>
+        </form>
+      </section>
+    </div>
+    <section id="cv-panel" class="cv-panel" hidden aria-labelledby="cv-title"><div class="cv-intro"><p class="eyebrow">CURRICULUM VITAE</p><h2 id="cv-title">更新你的简历</h2><p class="muted">选择新 PDF，发布后主页的下载按钮会自动指向新版本。</p></div><div class="current-cv"><div class="file-icon">PDF</div><div><strong>当前线上简历</strong><p id="current-cv-info" class="muted">Junyao_Huang_CV.pdf</p></div><a href="../assets/Junyao_Huang_CV.pdf" target="_blank" rel="noopener noreferrer" class="button quiet">查看 ↗</a></div><label class="upload-zone" for="cv-file"><span class="upload-icon">↑</span><strong>选择新的简历 PDF</strong><span>点击选择文件，最大 10 MB</span><input id="cv-file" type="file" accept="application/pdf,.pdf" disabled></label><div id="pending-cv" class="pending-cv" hidden><div><strong id="pending-cv-name"></strong><p id="pending-cv-size" class="muted"></p></div><button id="clear-cv" class="button quiet">取消替换</button></div><p class="help">上传的简历将供所有访客下载。新 PDF 只在当前页面暂存，刷新后需要重新选择。替换简历不会自动修改项目文字。</p></section>
+    <div class="utility-row"><span>文字草稿仅保存在这台设备上。</span><div class="row-actions"><button id="export-draft" class="text-button" disabled>导出草稿</button><label class="text-button import-label">导入草稿<input id="import-draft" type="file" accept="application/json,.json" disabled></label><button id="reload-content" class="text-button">载入最新内容</button></div></div>
+  </main>
+  <footer class="actionbar"><div><span id="change-summary">尚未修改</span><p>发布后通常需要等待几分钟。</p></div><div class="row-actions"><button id="preview-button" class="button" disabled>预览主页</button><button id="publish-button" class="button primary" disabled>发布更改 ↗</button></div></footer>
+
+  <dialog id="connect-dialog" class="modal"><div class="modal-heading"><h2>连接你的 GitHub</h2><button class="icon-button" data-close="connect-dialog" aria-label="关闭连接窗口">×</button></div><p class="muted">使用仅允许更新主页仓库的访问令牌。连接只在当前页面有效。</p><ol class="setup-steps"><li><a id="token-link" href="https://github.com/settings/personal-access-tokens/new?name=Homepage+Editor&amp;description=Update+my+personal+homepage&amp;target_name=Mowans&amp;expires_in=30&amp;contents=write" target="_blank" rel="noopener noreferrer">在 GitHub 创建访问令牌 ↗</a></li><li>在 <strong>Repository access</strong> 选择 <strong>Only select repositories</strong>，仅选 <strong>Mowans.github.io</strong>。</li><li>确认 <strong>Contents → Read and write</strong>，然后生成令牌，粘贴到下面。无需其他写入权限。</li></ol><form id="connect-form"><label class="field">GitHub 访问令牌<input id="token-input" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false" required></label><p id="connect-error" class="form-error" role="alert"></p><button id="connect-submit" class="button primary" type="submit">连接并载入内容</button></form><p class="help">令牌仅直接发送给 GitHub，不会保存到草稿、仓库或浏览器长期存储。不要将令牌发送到聊天中。</p></dialog>
+  <dialog id="publish-dialog" class="modal"><div class="modal-heading"><h2>发布这些更改？</h2><button class="icon-button" data-close="publish-dialog" aria-label="关闭发布窗口">×</button></div><p class="muted">发布目标：mowans.github.io</p><ul id="publish-review" class="review-list"></ul><p id="publish-progress" class="help" role="status"></p><div class="modal-actions"><button class="button" data-close="publish-dialog">继续编辑</button><button id="confirm-publish" class="button primary">确认发布</button></div></dialog>
+  <dialog id="preview-dialog" class="preview-modal"><div class="modal-heading"><div><h2>发布前预览</h2><p class="help">这是尚未发布的内容，预览内不运行脚本。</p></div><div class="row-actions"><button id="preview-zh" class="button compact" aria-pressed="true">中文</button><button id="preview-en" class="button compact" aria-pressed="false">English</button><button class="icon-button" data-close="preview-dialog" aria-label="关闭预览">×</button></div></div><iframe id="preview-frame" title="主页内容预览" sandbox></iframe></dialog>
+  <dialog id="confirm-dialog" class="modal"><div class="modal-heading"><h2 id="confirm-title"></h2></div><p id="confirm-description" class="muted"></p><div class="modal-actions"><button id="confirm-cancel" class="button">取消</button><button id="confirm-accept" class="button primary">确认</button></div></dialog>
+  <noscript><p class="notice">请开启浏览器 JavaScript 后使用管理页面。公开主页仍可正常阅读。</p></noscript>
+</body></html>

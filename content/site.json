@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "revision": "initial-admin-20261109",
+  "updatedAt": "2026-11-09T06:10:00.000Z",
+  "cv": {
+    "path": "assets/Junyao_Huang_CV.pdf",
+    "fileName": "Junyao_Huang_CV.pdf",
+    "updatedAt": "2026-11-09T06:10:00.000Z",
+    "size": 479594
+  },
+  "projects": [
+    {
+      "id": "event-navigation",
+      "visible": true,
+      "title": {
+        "zh": "基于事件光流与强化学习的轮式机器人自主避障",
+        "en": "Event-based optical flow for robot obstacle avoidance"
+      },
+      "summary": {
+        "zh": "让机器人在避障后及时回到参考路线并恢复指令速度。通过模仿学习与约束强化学习，训练融合视觉运动、自身状态和速度指令的循环策略。",
+        "en": "Learning to avoid obstacles while recovering the reference route and commanded speed. A recurrent policy combines visual motion, robot state, and velocity commands through imitation learning and constrained reinforcement learning."
+      },
+      "role": {
+        "zh": "第一作者研究",
+        "en": "First-author research"
+      },
+      "period": {
+        "zh": "2026.05 — 2026.09",
+        "en": "2026.05 — 2026.09"
+      },
+      "status": "under_review",
+      "venue": "ICRA 2027",
+      "customStatus": {
+        "zh": "",
+        "en": ""
+      },
+      "category": "event",
+      "illustration": "navigation",
+      "metric": {
+        "value": "60.5%",
+        "label": {
+          "zh": "200 个固定验证场景中的通行成功率，指令速度 2.0 m/s",
+          "en": "success across 200 fixed validation scenes at 2.0 m/s"
+        }
+      },
+      "details": {
+        "zh": "在 Isaac Sim / EVIS 中构建 RandomObstacleNav；冻结的 TID 将事件转换为光流，CNN + MLP + GRU 策略输出速度保留系数与目标偏航角速度。训练采用 Oracle-DWA → BC → DAgger → 约束 PPO，配合特权奖励/成本双头 Critic，以 Reference Flow 训练、Event Flow 推理。\n\n在所测配置下，通行成功率较 iPlanner、NavDP 分别高 29.5、52.0 个百分点。另完成室内楼道与室外广场的真机闭环避障验证。",
+        "en": "Built RandomObstacleNav in Isaac Sim / EVIS. A frozen TID front end converts events to optical flow, while a CNN + MLP + GRU policy predicts a speed-retention factor and target yaw rate. Training follows Oracle-DWA → BC → DAgger → constrained PPO, with a privileged reward/cost dual-head critic; Reference Flow is used in training and Event Flow at inference.\n\nIn the tested configurations, success was 29.5 and 52.0 percentage points above iPlanner and NavDP, respectively. Separate real-world closed-loop avoidance tests were completed in an indoor corridor and an outdoor plaza."
+      },
+      "links": {
+        "paper": "",
+        "code": "",
+        "project": "",
+        "video": ""
+      }
+    },
+    {
+      "id": "safe-planning",
+      "visible": true,
+      "title": {
+        "zh": "有限预算约束下的安全路径规划与主动感知",
+        "en": "Safe planning and active sensing under a hard budget"
+      },
+      "summary": {
+        "zh": "当感知与执行共享有限预算，智能体何时应停止检测并开始行动？DR-CF-VOI 将路径安全认证、预算分层的可执行前沿与一步信息价值相结合。",
+        "en": "When sensing and execution share a finite budget, when should an agent stop testing and start acting? DR-CF-VOI combines path safety certification, a budget-layered executable frontier, and one-step value of information."
+      },
+      "role": {
+        "zh": "第一作者研究",
+        "en": "First-author research"
+      },
+      "period": {
+        "zh": "2026.04 — 2026.07",
+        "en": "2026.04 — 2026.07"
+      },
+      "status": "phase1",
+      "venue": "AAAI 2027",
+      "customStatus": {
+        "zh": "",
+        "en": ""
+      },
+      "category": "planning",
+      "illustration": "planning",
+      "metric": {
+        "value": "+15.9%",
+        "label": {
+          "zh": "安全收益提升，评估覆盖 153,600 个配对随机世界",
+          "en": "safe reward across 153,600 paired random worlds"
+        }
+      },
+      "details": {
+        "zh": "以因子化似然比置信序列认证路径安全，通过预算分层动态规划构建可执行前沿，无需显式枚举路径；结合认证债务与一步信息价值选择测试或执行。风险界的理论保证依赖固定独立二元边状态、正确似然及可预测测试策略等假设。\n\n在 10 个留出 MovingAI 拓扑、30 组预算中，安全收益由 3.921 提高至 4.544，完整交付率由 33.5% 提升至 37.7%。无硬预算违规，48 个审计单元的 DP 误差为 0。",
+        "en": "Factorized likelihood-ratio confidence sequences certify path safety. Budget-layered dynamic programming builds an executable frontier without explicit path enumeration, while certification debt and one-step value of information guide testing versus execution. The unsafe-delivery risk bound assumes fixed independent binary edge states, correct likelihoods, and a predictable testing policy.\n\nEvaluation covers 10 held-out MovingAI topologies and 30 budgets. Safe reward increased from 3.921 to 4.544; full-delivery rate increased from 33.5% to 37.7%. No hard-budget violations were observed, and DP error was zero in 48 audited units."
+      },
+      "links": {
+        "paper": "",
+        "code": "",
+        "project": "",
+        "video": ""
+      }
+    },
+    {
+      "id": "event-flight",
+      "visible": true,
+      "title": {
+        "zh": "基于纯事件视觉的无人机状态估计与闭环飞行控制",
+        "en": "Event-only visual state estimation and closed-loop flight"
+      },
+      "summary": {
+        "zh": "在受限机载算力下，将稀疏事件流转化为可用于控制的飞行状态反馈，连接事件光流、时序状态估计与稀疏控制解码器。",
+        "en": "Turning sparse event streams into useful flight-state feedback under onboard compute constraints. The system connects event optical flow, temporal state estimation, and a sparse control decoder."
+      },
+      "role": {
+        "zh": "第一作者研究",
+        "en": "First-author research"
+      },
+      "period": {
+        "zh": "2025.09 — 至今",
+        "en": "2025.09 — Present"
+      },
+      "status": "in_preparation",
+      "venue": "",
+      "customStatus": {
+        "zh": "",
+        "en": ""
+      },
+      "category": "event",
+      "illustration": "flight",
+      "metric": {
+        "value": "4.49 cm",
+        "label": {
+          "zh": "40 秒仿真八字飞行中的水平位置 RMSE",
+          "en": "horizontal position RMSE in a 40 s simulated figure-eight flight"
+        }
+      },
+      "details": {
+        "zh": "基于下视 Speck2f 的局部亮度归一化多点光流，每 50 ms 拟合四参数运动模型以恢复三轴尺度速度。冻结整数 SNN 前端，微调 Jetson 时序估计网络预测横滚、俯仰及三轴角速度，并将速度反馈接入仅有 11 个可调连接的稀疏解码器。\n\nIsaac Sim 实验中由真值姿态和角速度稳定内环，事件视觉提供平移反馈，最大高度误差为 5.77 cm。Jetson Orin 机载集成后，在地面地图定位反馈修正下完成实机八字飞行并返回起点。",
+        "en": "Locally brightness-normalized multipoint optical flow from a downward-facing Speck2f sensor fits a four-parameter motion model every 50 ms to recover three-axis scale velocity. A frozen integer SNN front end and a fine-tuned Jetson temporal estimator predict roll, pitch, and angular velocity. Velocity feedback feeds a sparse decoder with 11 tunable connections.\n\nIn Isaac Sim, ground-truth attitude and angular velocity stabilized the inner loop, while event vision provided translational feedback; maximum altitude error was 5.77 cm. After Jetson Orin integration, real figure-eight flight and return-to-start were demonstrated with ground-map localization feedback corrections."
+      },
+      "links": {
+        "paper": "",
+        "code": "",
+        "project": "",
+        "video": ""
+      }
+    }
+  ]
+}
